@@ -1,0 +1,49 @@
+{
+  "name": "Transaction",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TransactionType",
+      "fieldValues": "BUY,SELL"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paper",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "paper",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "brokerageNote",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "brokerageNote",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806103120",
+  "entityTableName": "transaction",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

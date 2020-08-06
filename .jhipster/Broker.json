@@ -1,0 +1,28 @@
+{
+  "name": "Broker",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "brokerageNote",
+      "otherEntityRelationshipName": "broker",
+      "relationshipName": "brokerageNote"
+    }
+  ],
+  "changelogDate": "20200806102920",
+  "entityTableName": "broker",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

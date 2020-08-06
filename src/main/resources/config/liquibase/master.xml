@@ -14,7 +14,15 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806102720_added_entity_Paper.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806102820_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806102920_added_entity_Broker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806103020_added_entity_BrokerageNote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806103120_added_entity_Transaction.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200806102820_added_entity_constraints_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806103020_added_entity_constraints_BrokerageNote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200806103120_added_entity_constraints_Transaction.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
