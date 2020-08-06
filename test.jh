@@ -1,0 +1,52 @@
+entity Paper {
+	code String
+    name String
+    marketValue Long
+    position Position
+}
+
+entity Position {
+	paper Paper
+}
+
+entity Transaction {
+	quantity String
+    value Long
+    date LocalDate
+	paper Paper
+    type TransactionType
+    brokerageNote BrokerageNote
+}
+
+enum TransactionType {
+    BUY, SELL
+}
+
+entity BrokerageNote {
+	number String
+    broker Broker
+    emoluments Long
+    liquidation Long
+    otherTaxes Long
+    value Long
+}
+
+entity Broker {
+	name String
+}
+
+relationship OneToMany {
+	Paper{position} to Position{paper}
+}
+
+relationship OneToMany {
+	Paper to Transaction{paper}
+}
+
+relationship OneToMany {
+	Broker to BrokerageNote{broker}
+}
+
+relationship OneToMany {
+	BrokerageNote to Transaction{brokerageNote}
+}
