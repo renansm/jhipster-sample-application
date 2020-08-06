@@ -1,0 +1,48 @@
+entity Papel {
+	codigo String
+    nome String
+    precoMercado Double
+}
+
+entity Posicao {
+	quantidade Long
+}
+
+entity Corretora {
+	nome String
+}
+
+entity NotaCorretagem {
+	numero Long
+    emolumentos Double
+    liquidacao Double
+    outrasTaxas Double
+    valor Double
+}
+
+enum TipoTransacao {
+    COMPRA, VENDA
+}
+
+entity Transacao {
+	quantidade Long
+    valor Double
+    data LocalDate
+    tipo TipoTransacao
+}
+
+relationship OneToMany {
+	Papel to Posicao{papel}
+}
+
+relationship OneToMany {
+	Papel to Transacao{papel}
+}
+
+relationship OneToMany {
+	Corretora to NotaCorretagem{corretora}
+}
+
+relationship OneToMany {
+	NotaCorretagem to Transacao{notaCorretagem}
+}
