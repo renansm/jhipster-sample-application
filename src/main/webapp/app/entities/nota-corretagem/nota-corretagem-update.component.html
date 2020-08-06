@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-nota-corretagem-heading">Create or edit a Nota Corretagem</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numero">Numero</label>
+                    <input type="number" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_emolumentos">Emolumentos</label>
+                    <input type="number" class="form-control" name="emolumentos" id="field_emolumentos"
+                           formControlName="emolumentos"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_liquidacao">Liquidacao</label>
+                    <input type="number" class="form-control" name="liquidacao" id="field_liquidacao"
+                           formControlName="liquidacao"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_outrasTaxas">Outras Taxas</label>
+                    <input type="number" class="form-control" name="outrasTaxas" id="field_outrasTaxas"
+                           formControlName="outrasTaxas"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                           formControlName="valor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_corretora">Corretora</label>
+                    <select class="form-control" id="field_corretora" name="corretora" formControlName="corretora">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="corretoraOption.id === editForm.get('corretora')!.value?.id ? editForm.get('corretora')!.value : corretoraOption" *ngFor="let corretoraOption of corretoras; trackBy: trackById">{{ corretoraOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

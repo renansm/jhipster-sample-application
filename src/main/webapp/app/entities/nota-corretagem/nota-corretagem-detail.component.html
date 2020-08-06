@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notaCorretagem">
+            <h2><span>Nota Corretagem</span> {{ notaCorretagem.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Numero</span></dt>
+                <dd>
+                    <span>{{ notaCorretagem.numero }}</span>
+                </dd>
+                <dt><span>Emolumentos</span></dt>
+                <dd>
+                    <span>{{ notaCorretagem.emolumentos }}</span>
+                </dd>
+                <dt><span>Liquidacao</span></dt>
+                <dd>
+                    <span>{{ notaCorretagem.liquidacao }}</span>
+                </dd>
+                <dt><span>Outras Taxas</span></dt>
+                <dd>
+                    <span>{{ notaCorretagem.outrasTaxas }}</span>
+                </dd>
+                <dt><span>Valor</span></dt>
+                <dd>
+                    <span>{{ notaCorretagem.valor }}</span>
+                </dd>
+                <dt><span>Corretora</span></dt>
+                <dd>
+                    <div *ngIf="notaCorretagem.corretora">
+                        <a [routerLink]="['/corretora', notaCorretagem.corretora?.id, 'view']">{{ notaCorretagem.corretora?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nota-corretagem', notaCorretagem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
