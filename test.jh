@@ -2,12 +2,9 @@ entity Paper {
 	code String
     name String
     marketValue Long
-    position Position
 }
 
-entity Position {
-	paper Paper
-}
+entity Position
 
 enum TransactionType {
     BUY, SELL
@@ -16,9 +13,9 @@ enum TransactionType {
 entity Broker {
 	name String
 }
+
 entity BrokerageNote {
 	number String
-    broker Broker
     emoluments Long
     liquidation Long
     otherTaxes Long
@@ -29,13 +26,11 @@ entity Transaction {
 	quantity String
     value Long
     date LocalDate
-	paper Paper
     type TransactionType
-    brokerageNote BrokerageNote
 }
 
 relationship OneToMany {
-	Paper{position} to Position{paper}
+	Paper to Position{paper}
 }
 
 relationship OneToMany {
@@ -48,4 +43,8 @@ relationship OneToMany {
 
 relationship OneToMany {
 	BrokerageNote to Transaction{brokerageNote}
+}
+
+relationship ManyToOne {
+  BrokerageNote{broker} to Broker
 }
