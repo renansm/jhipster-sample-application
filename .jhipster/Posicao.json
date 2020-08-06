@@ -1,0 +1,29 @@
+{
+  "name": "Posicao",
+  "fields": [
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "papel",
+      "otherEntityRelationshipName": "posicao",
+      "relationshipName": "papel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806121656",
+  "entityTableName": "posicao",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

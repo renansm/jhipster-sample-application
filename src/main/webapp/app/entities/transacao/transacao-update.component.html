@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transacao-heading">Create or edit a Transacao</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantidade">Quantidade</label>
+                    <input type="number" class="form-control" name="quantidade" id="field_quantidade"
+                           formControlName="quantidade"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                           formControlName="valor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker #dataDp="ngbDatepicker" formControlName="data"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tipo">Tipo</label>
+                    <select class="form-control" name="tipo" formControlName="tipo" id="field_tipo">
+                        <option value="COMPRA">COMPRA</option>
+                        <option value="VENDA">VENDA</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_papel">Papel</label>
+                    <select class="form-control" id="field_papel" name="papel" formControlName="papel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="papelOption.id === editForm.get('papel')!.value?.id ? editForm.get('papel')!.value : papelOption" *ngFor="let papelOption of papels; trackBy: trackById">{{ papelOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_notaCorretagem">Nota Corretagem</label>
+                    <select class="form-control" id="field_notaCorretagem" name="notaCorretagem" formControlName="notaCorretagem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="notaCorretagemOption.id === editForm.get('notaCorretagem')!.value?.id ? editForm.get('notaCorretagem')!.value : notaCorretagemOption" *ngFor="let notaCorretagemOption of notacorretagems; trackBy: trackById">{{ notaCorretagemOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

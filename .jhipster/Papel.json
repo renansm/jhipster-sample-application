@@ -1,0 +1,42 @@
+{
+  "name": "Papel",
+  "fields": [
+    {
+      "fieldName": "codigo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "precoMercado",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "posicao",
+      "otherEntityRelationshipName": "papel",
+      "relationshipName": "posicao"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transacao",
+      "otherEntityRelationshipName": "papel",
+      "relationshipName": "transacao"
+    }
+  ],
+  "changelogDate": "20200806121556",
+  "entityTableName": "papel",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

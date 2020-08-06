@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span>Nota Corretagems</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-nota-corretagem" [routerLink]="['/nota-corretagem/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Nota Corretagem
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="notaCorretagems?.length === 0">
+        <span>No notaCorretagems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="notaCorretagems && notaCorretagems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Numero</span></th>
+                    <th scope="col" ><span>Emolumentos</span></th>
+                    <th scope="col" ><span>Liquidacao</span></th>
+                    <th scope="col" ><span>Outras Taxas</span></th>
+                    <th scope="col" ><span>Valor</span></th>
+                    <th scope="col" ><span>Corretora</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let notaCorretagem of notaCorretagems ;trackBy: trackId">
+                    <td><a [routerLink]="['/nota-corretagem', notaCorretagem.id, 'view']">{{ notaCorretagem.id }}</a></td>
+                    <td>{{ notaCorretagem.numero }}</td>
+                    <td>{{ notaCorretagem.emolumentos }}</td>
+                    <td>{{ notaCorretagem.liquidacao }}</td>
+                    <td>{{ notaCorretagem.outrasTaxas }}</td>
+                    <td>{{ notaCorretagem.valor }}</td>
+                    <td>
+                        <div *ngIf="notaCorretagem.corretora">
+                            <a [routerLink]="['/corretora', notaCorretagem.corretora?.id, 'view']" >{{ notaCorretagem.corretora?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/nota-corretagem', notaCorretagem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/nota-corretagem', notaCorretagem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(notaCorretagem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

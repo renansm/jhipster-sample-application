@@ -1,0 +1,51 @@
+{
+  "name": "NotaCorretagem",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "emolumentos",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "liquidacao",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "outrasTaxas",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valor",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transacao",
+      "otherEntityRelationshipName": "notaCorretagem",
+      "relationshipName": "transacao"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "corretora",
+      "otherEntityRelationshipName": "notaCorretagem",
+      "relationshipName": "corretora",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806121856",
+  "entityTableName": "nota_corretagem",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

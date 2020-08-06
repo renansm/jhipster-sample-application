@@ -1,0 +1,49 @@
+{
+  "name": "Transacao",
+  "fields": [
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "valor",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoTransacao",
+      "fieldValues": "COMPRA,VENDA"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "papel",
+      "otherEntityRelationshipName": "transacao",
+      "relationshipName": "papel",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "notaCorretagem",
+      "otherEntityRelationshipName": "transacao",
+      "relationshipName": "notaCorretagem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806121956",
+  "entityTableName": "transacao",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

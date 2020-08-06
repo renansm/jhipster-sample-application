@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity NotaCorretagem.
+    -->
+    <changeSet id="20200806121856-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="corretora_id"
+                                 baseTableName="nota_corretagem"
+                                 constraintName="fk_nota_corretagem_corretora_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="corretora"/>
+
+    </changeSet>
+</databaseChangeLog>

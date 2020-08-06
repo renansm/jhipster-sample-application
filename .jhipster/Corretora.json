@@ -1,0 +1,28 @@
+{
+  "name": "Corretora",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notaCorretagem",
+      "otherEntityRelationshipName": "corretora",
+      "relationshipName": "notaCorretagem"
+    }
+  ],
+  "changelogDate": "20200806121756",
+  "entityTableName": "corretora",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
