@@ -1,0 +1,51 @@
+{
+  "name": "BrokerageNote",
+  "fields": [
+    {
+      "fieldName": "number",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emoluments",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "liquidation",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "otherTaxes",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "brokerageNote",
+      "relationshipName": "transaction"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "broker",
+      "otherEntityRelationshipName": "brokerageNote",
+      "relationshipName": "broker",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806114256",
+  "entityTableName": "brokerage_note",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

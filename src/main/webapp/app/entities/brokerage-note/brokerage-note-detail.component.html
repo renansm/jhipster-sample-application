@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="brokerageNote">
+            <h2><span>Brokerage Note</span> {{ brokerageNote.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Number</span></dt>
+                <dd>
+                    <span>{{ brokerageNote.number }}</span>
+                </dd>
+                <dt><span>Emoluments</span></dt>
+                <dd>
+                    <span>{{ brokerageNote.emoluments }}</span>
+                </dd>
+                <dt><span>Liquidation</span></dt>
+                <dd>
+                    <span>{{ brokerageNote.liquidation }}</span>
+                </dd>
+                <dt><span>Other Taxes</span></dt>
+                <dd>
+                    <span>{{ brokerageNote.otherTaxes }}</span>
+                </dd>
+                <dt><span>Value</span></dt>
+                <dd>
+                    <span>{{ brokerageNote.value }}</span>
+                </dd>
+                <dt><span>Broker</span></dt>
+                <dd>
+                    <div *ngIf="brokerageNote.broker">
+                        <a [routerLink]="['/broker', brokerageNote.broker?.id, 'view']">{{ brokerageNote.broker?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/brokerage-note', brokerageNote.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

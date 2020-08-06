@@ -1,0 +1,24 @@
+{
+  "name": "Position",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paper",
+      "otherEntityRelationshipName": "position",
+      "relationshipName": "paper",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200806114056",
+  "entityTableName": "position",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
